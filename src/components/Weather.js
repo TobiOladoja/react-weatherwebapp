@@ -2,9 +2,25 @@ import React, { Component } from 'react';
 
 export default class Weather extends Component {
   render() {
+    const {
+      temperature,
+      city,
+      country,
+      humidity,
+      description,
+      error
+    } = this.props;
     return (
       <div>
-        <h1>Weather Component</h1>
+        {city && country && (
+          <p>
+            Location: {city}, {country}{' '}
+          </p>
+        )}
+        {temperature && <p> Temperature: {temperature} </p>}
+        {humidity && <p> Humidity: {humidity} </p>}
+        {description && <p> Conditions: {description}</p>}
+        {error && <p>{error}</p>}
       </div>
     );
   }
